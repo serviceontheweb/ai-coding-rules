@@ -12,5 +12,5 @@ Universal AGENTS.md rules for AI coding agents. Works with Codex, Claude Code, C
 ## Quick Links
 
 - [AGENTS.md (the master rules file)](../blob/main/AGENTS.md)
-- [Project template](../blob/main/project-agents-template.md)
-- [Codex config template](../blob/main/config.toml)
+- [Project template](../blob/main/templates/project-agents-template.md)
+- [Codex config template](../blob/main/templates/config.toml)
