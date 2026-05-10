@@ -1,0 +1,20 @@
+# Codex Configuration
+# Save as: ~/.codex/config.toml
+
+# Model preference (adjust to your plan)
+# model = "o3"
+
+# Approval and sandbox settings
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+[sandbox_workspace_write]
+network_access = true
+
+# Agent instruction file settings
+project_doc_fallback_filenames = ["CLAUDE.md", "AGENTS.md", ".agents.md"]
+project_doc_max_bytes = 65536
+
+# Remote connections (alpha — enable if using remote VPS)
+# [features]
+# remote_connections = true
