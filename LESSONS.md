@@ -13,3 +13,9 @@
 **Root cause:** GitHub had not initialized the separate wiki Git repository yet, or the available write path did not permit creating it directly.
 **Lesson:** For a brand-new GitHub Wiki, create the first page in the web UI if `.wiki.git` returns 404, then push the prepared wiki Markdown files.
 **Action:** Prepared the five wiki page files and added source copies under `wiki/` in the main repository.
+
+### 2026-05-13 — Wiki Commits Are Separate From Main Repo Commits
+**What happened:** The wiki upgrade was pushed to `ai-coding-rules.wiki.git`, but it did not appear in the main `ai-coding-rules` repository commit list.
+**Root cause:** GitHub Wikis are separate Git repositories with separate commit histories.
+**Lesson:** When publishing public docs, push both the `.wiki.git` repository and the main repository source files if the owner expects commits to appear on the main repo page.
+**Action:** Applied the upgrade pack to the main repository and committed it there as well.

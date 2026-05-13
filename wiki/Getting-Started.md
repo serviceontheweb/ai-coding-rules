@@ -1,53 +1,47 @@
 # Getting Started
 
-## Step 1: Choose Your Scope
+Add the core files to your project:
 
-**Global (all projects):**
 ```bash
-mkdir -p ~/.codex
-cp AGENTS.md ~/.codex/AGENTS.md
+cp AGENTS.md /path/to/project/AGENTS.md
+cp CLAUDE.md /path/to/project/CLAUDE.md
+cp templates/LESSONS-template.md /path/to/project/LESSONS.md
+cp templates/CHANGELOG-template.md /path/to/project/CHANGELOG.md
 ```
 
-**Per-project:**
-```bash
-cp AGENTS.md /your/project/root/
+Then customize `AGENTS.md` with:
+
+- project overview;
+- tech stack;
+- important commands;
+- known issues;
+- deployment constraints;
+- files agents must not touch without approval.
+
+## Claude Code
+
+Add `CLAUDE.md`:
+
+```md
+@AGENTS.md
+
+## Claude Code notes
+
+Use AGENTS.md as the project operating contract.
 ```
 
-**Both (recommended):** Global for universal rules, per-project for specifics.
+## GitHub Copilot
 
-## Step 2: Add Persistence Files
+Add:
 
-In every project root:
-```bash
-touch LESSONS.md CHANGELOG.md
-echo "# Lessons Learned" > LESSONS.md
-echo "# Changelog" > CHANGELOG.md
+```text
+.github/copilot-instructions.md
+.github/instructions/backend.instructions.md
+.github/instructions/frontend.instructions.md
 ```
 
-## Step 3: Configure Your Agent
+## First agent prompt for a project
 
-### Codex
-```toml
-# ~/.codex/config.toml
-project_doc_fallback_filenames = ["CLAUDE.md", "AGENTS.md", ".agents.md"]
-project_doc_max_bytes = 65536
+```text
+Read AGENTS.md, LESSONS.md, and CHANGELOG.md. Inspect only the files needed for this task. Use bounded command output. Before risky changes, propose a short plan and ask for approval.
 ```
-
-### Claude Code
-Rename to `CLAUDE.md` or keep as `AGENTS.md` — both are supported.
-
-### Cursor
-Place at project root — auto-detected. For advanced rules, use `.cursor/rules/` directory.
-
-### GitHub Copilot
-Place at project root — processed server-side automatically.
-
-## Step 4: Create a Project-Specific AGENTS.md
-
-Use the template in `templates/project-agents-template.md` and fill in your project details.
-
-## Step 5: Start Working
-
-Launch your agent. It reads the files automatically. No special prompting needed.
-
-After every session, the agent should append to `LESSONS.md` and `CHANGELOG.md`. If it doesn't do this automatically, remind it once — it will follow the rule from AGENTS.md going forward.

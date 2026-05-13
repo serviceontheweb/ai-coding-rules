@@ -1,16 +1,45 @@
-# AI Coding Rules — Wiki
+# ai-coding-rules Wiki
 
-Universal AGENTS.md rules for AI coding agents. Works with Codex, Claude Code, Cursor, Copilot, Windsurf, and any AGENTS.md-compatible tool.
+Welcome to the `ai-coding-rules` wiki.
 
-## Pages
+This project provides lightweight, tool-neutral rules for AI coding agents. It helps repositories define:
 
-- [[Getting Started]] — Setup in 5 minutes
-- [[Context Discipline]] — How to cut token usage by 50%
-- [[Lessons System]] — Persistent memory for AI agents
-- [[Safety Rules]] — Why each rule exists and what happens when you break them
+- safe agent behavior;
+- context-discipline patterns;
+- validation expectations;
+- persistent lessons;
+- changelog hygiene;
+- tool-specific adapters.
 
-## Quick Links
+## Start here
 
-- [AGENTS.md (the master rules file)](../blob/main/AGENTS.md)
-- [Project template](../blob/main/templates/project-agents-template.md)
-- [Codex config template](../blob/main/templates/config.toml)
+- [Getting Started](Getting-Started)
+- [Compatibility](Compatibility)
+- [Context Discipline](Context-Discipline)
+- [Safety Rules](Safety-Rules)
+- [Lessons System](Lessons-System)
+- [Publishing Guide](Publishing-Guide)
+
+## Core files
+
+| File | Purpose |
+|---|---|
+| `AGENTS.md` | Universal operating contract for coding agents. |
+| `CLAUDE.md` | Claude Code bridge that imports `AGENTS.md`. |
+| `LESSONS.md` | Durable project memory. |
+| `CHANGELOG.md` | Completed work record. |
+
+## Recommended setup
+
+```text
+your-project/
+  AGENTS.md
+  CLAUDE.md
+  LESSONS.md
+  CHANGELOG.md
+  .github/
+    copilot-instructions.md
+    instructions/
+      backend.instructions.md
+      frontend.instructions.md
+```

@@ -1,175 +1,129 @@
-# AGENTS.md — Master Rules for AI Coding Agents
+# ai-coding-rules
 
-> A battle-tested, universal AGENTS.md file for guiding AI coding agents. Works with **Codex, Claude Code, Cursor, Copilot, Windsurf, Aider**, and any tool that supports the AGENTS.md standard.
+Lightweight, tool-neutral rules for AI coding agents.
 
-## The Problem
+This repository gives projects a portable `AGENTS.md`, safety guardrails, context-discipline patterns, persistent lessons, changelog hygiene, and optional adapters for Codex, Claude Code, GitHub Copilot, Cursor, Windsurf, Aider, Gemini, and other coding agents.
 
-Every time you start a new AI coding session, the agent has **zero memory**. It doesn't know your project structure, coding rules, past bugs, or what was already tried. This wastes tokens, time, and causes the same mistakes to repeat endlessly.
+The goal is not to create a large agent harness. The goal is to give every repo a small operating contract that keeps AI coding sessions safe, concise, reviewable, and consistent.
 
-## The Solution
+## What this repo gives you
 
-Drop `AGENTS.md` into your project root. The agent reads it automatically before every session. Combined with `LESSONS.md` (persistent mistake log) and `CHANGELOG.md` (track record), your AI coding agent now has **long-term memory**.
+- `AGENTS.md` - universal project operating rules for coding agents.
+- `CLAUDE.md` - Claude Code bridge that imports `AGENTS.md`.
+- `LESSONS.md` template - persistent log of reusable mistakes and fixes.
+- `CHANGELOG.md` template - human-readable record of work completed by humans and agents.
+- `rules/` - modular rule packs for safety, validation, memory, git workflow, deployment, and context discipline.
+- `skills/` - reusable workflows for onboarding, security checks, validation, closeout, and context-safe inspection.
+- `adapters/` - tool-specific notes for Codex, Claude Code, GitHub Copilot, Cursor, Windsurf, and Aider.
+- `docs/` - public documentation suitable for GitHub Pages.
+- `wiki/` - pages that can be copied into the GitHub wiki repo.
 
-## What This Covers
+## Quick start
 
-| Section | What It Does |
-|---------|-------------|
-| **Operating Principles** | Keep changes minimal, follow existing patterns |
-| **Context Discipline** | Byte-cap command output, scope searches, protect the context window |
-| **Safety Rules** | Never delete files, never commit secrets, always backup first |
-| **Code Style** | Language-specific defaults (Python, JS, PHP, SQL, CSS) |
-| **Git Practices** | Commit format, branching rules |
-| **Validation** | Match validation effort to risk level |
-| **Deployment** | Test first, exclude configs, fix permissions |
-| **Subagents** | When and how to use sub-agents effectively |
-| **Communication** | What to report before, during, and after work |
-| **LESSONS.md** | Persistent mistake memory — never repeat a documented failure |
-| **CHANGELOG.md** | Track record of all changes by all agents |
-
-## Quick Start
-
-### Option 1: Global (applies to all projects)
+Copy the core files into a project:
 
 ```bash
-mkdir -p ~/.codex
-cp AGENTS.md ~/.codex/AGENTS.md
+cp AGENTS.md /path/to/project/AGENTS.md
+cp CLAUDE.md /path/to/project/CLAUDE.md
+cp templates/LESSONS-template.md /path/to/project/LESSONS.md
+cp templates/CHANGELOG-template.md /path/to/project/CHANGELOG.md
 ```
 
-Every Codex session reads this automatically.
+Then customize the project-specific sections in `AGENTS.md`.
 
-### Option 2: Per-project (project-specific rules)
+## Recommended structure
+
+```text
+your-project/
+  AGENTS.md
+  CLAUDE.md
+  LESSONS.md
+  CHANGELOG.md
+  .github/
+    copilot-instructions.md
+    instructions/
+      backend.instructions.md
+      frontend.instructions.md
+```
+
+For this source repo, keep the reusable material organized like this:
+
+```text
+ai-coding-rules/
+  AGENTS.md
+  CLAUDE.md
+  SECURITY.md
+  docs/
+  rules/
+  skills/
+  adapters/
+  templates/
+  wiki/
+```
+
+## Compatibility snapshot
+
+| Tool | Recommended file | Notes |
+|---|---|---|
+| OpenAI Codex | `AGENTS.md` | Use `AGENTS.md` as the project operating contract. |
+| Claude Code | `CLAUDE.md` | `CLAUDE.md` should import `AGENTS.md` with `@AGENTS.md`. |
+| GitHub Copilot | `.github/copilot-instructions.md`, `.github/instructions/*.instructions.md`, `AGENTS.md` | Use repository-wide, path-specific, and agent instructions together. |
+| Cursor | Project rules file or imported `AGENTS.md` | Use the adapter notes as a starting point. |
+| Windsurf | Project rules file or imported `AGENTS.md` | Use the adapter notes as a starting point. |
+| Aider | Convention file plus copied rules | Use the adapter notes as a starting point. |
+| Gemini / Jules | `AGENTS.md` or tool-specific memory file | Keep the root rules concise. |
+
+## Core principle: context discipline
+
+AI coding agents often fail because they flood the context window with unbounded output. This repo treats context as a limited engineering resource.
+
+Prefer scoped, bounded commands:
 
 ```bash
-cp AGENTS.md /path/to/your/project/AGENTS.md
-touch /path/to/your/project/LESSONS.md
-touch /path/to/your/project/CHANGELOG.md
+rg -n -m 20 "search term" src/ 2>&1 | head -c 4000
+git diff -- path/to/file 2>&1 | head -c 6000
+npm test 2>&1 | tail -c 6000
 ```
 
-### Option 3: Both (recommended)
-
-Use the global file for universal rules. Add a project-specific `AGENTS.md` in each repo root for stack-specific context, commands, and known issues. Project rules override global rules when they conflict.
-
-```
-~/.codex/
-├── AGENTS.md          ← Global rules (this file)
-└── config.toml        ← Agent config
-
-~/your-project/
-├── AGENTS.md          ← Project-specific overrides
-├── LESSONS.md         ← Accumulated lessons (grows over time)
-├── CHANGELOG.md       ← What was changed, when, by whom
-└── README.md          ← For humans
-```
-
-## The Three-File System
-
-### AGENTS.md — The Rulebook
-What the agent must know before touching any code. Coding standards, safety rules, validation requirements, communication format.
-
-### LESSONS.md — The Mistake Log
-Append-only log of things that went wrong and what was learned. The agent reads this before every session and never repeats a documented mistake.
-
-```markdown
-### 2026-05-09 — CSS Bundling Broke the UI
-**What happened:** Bundled CSS files into a single minified file. Broke the entire dashboard.
-**Root cause:** Bundle was built from outdated source files, overwriting recent improvements.
-**Lesson:** Never bundle CSS in this project. Use individual files with ?v= cache busting.
-**Action:** Added as permanent rule in AGENTS.md.
-```
-
-### CHANGELOG.md — The Track Record
-Who did what, when. Essential for multi-agent workflows where Codex, Claude, Cursor, and humans all contribute.
-
-```markdown
-| Date | Author | Type | Description |
-|------|--------|------|-------------|
-| 2026-05-09 | Codex | fix | Repaired POS submit button visibility |
-| 2026-05-09 | Claude | perf | Added database indexes to sales table |
-| 2026-05-10 | Human | chore | Updated SSL certificate |
-```
-
-## Key Innovation: Context Discipline
-
-The biggest token waste in AI coding comes from unbounded command output flooding the context window. This AGENTS.md enforces **byte-capped output** on every command:
+Avoid unbounded commands:
 
 ```bash
-# BAD — dumps entire file/output into context
-cat large_file.py
-rg -n "term" .
+cat large-file.log
+rg -n "search term" .
 git diff
 npm test
-
-# GOOD — bounded, focused
-head -100 large_file.py
-rg -n -m 20 "term" src/ 2>&1 | head -c 4000
-git diff -- specific/file.py 2>&1 | head -c 6000
-npm test 2>&1 | tail -c 4000
 ```
 
-This single pattern can **reduce token usage by 50%** across sessions.
+## Safety baseline
 
-## Codex Configuration
+Agents must not:
 
-```toml
-# ~/.codex/config.toml
-project_doc_fallback_filenames = ["CLAUDE.md", "AGENTS.md", ".agents.md"]
-project_doc_max_bytes = 65536
+- delete files without explicit user approval;
+- expose secrets, tokens, private keys, `.env` values, or credentials;
+- deploy, force-push, reset hard, or change production data without explicit approval;
+- claim validation passed unless it actually ran and passed;
+- rewrite large areas of code when a narrow patch will solve the task.
+
+## Docs and wiki
+
+Use `docs/index.md` as the GitHub Pages landing page if you publish from the `/docs` folder.
+
+Use the files in `wiki/` for GitHub Wiki. The wiki is a separate git repository ending in `.wiki.git`; after creating the first wiki page on GitHub, clone it, copy the `wiki/*.md` files, commit, and push.
+
+## Suggested GitHub repo metadata
+
+Description:
+
+```text
+Lightweight AGENTS.md rules, safety guardrails, context discipline, and memory templates for AI coding agents.
 ```
 
-## Project-Specific AGENTS.md Template
+Topics:
 
-For each project, create a repo-level `AGENTS.md` with project-specific context:
-
-```markdown
-# [Project Name] — AGENTS.md
-
-## Overview
-[What this project is, one paragraph]
-
-## Tech Stack
-[Language, framework, database, hosting]
-
-## Directory Structure
-[Key directories and what they contain]
-
-## Commands
-[Build, test, lint, deploy — exact syntax]
-
-## Known Issues
-[Gotchas that will trip you up]
-
-## DO NOT
-[Project-specific prohibitions]
-
-## Read LESSONS.md before starting work.
+```text
+agents-md ai-coding codex claude-code github-copilot cursor windsurf aider prompt-engineering developer-tools coding-agents ai-agent-rules
 ```
-
-## Compatibility
-
-| Tool | Support | How It's Read |
-|------|---------|---------------|
-| OpenAI Codex | ✅ Native | Auto-reads from repo root and ~/.codex/ |
-| Claude Code | ✅ Native | Auto-reads as CLAUDE.md or AGENTS.md |
-| GitHub Copilot | ✅ Native | Server-side processing since Aug 2025 |
-| Cursor | ✅ Native | Auto-detects at project root |
-| Windsurf | ✅ Native | Supports AGENTS.md format |
-| Aider | ✅ Compatible | Via conventions file |
-| Google Jules/Gemini | ✅ Native | Supports AGENTS.md |
-| Any other agent | 📋 Manual | Paste content into system prompt or first message |
-
-## Credits & References
-
-- [AGENTS.md Official Spec](https://github.com/agentsmd/agents.md) — The open standard
-- [Austin1serb/agents-md](https://github.com/Austin1serb/agents-md) — Context discipline patterns (byte-capping, token efficiency)
-- [Awesome AGENTS.md](https://github.com/Ischca/awesome-agents-md) — Curated list of templates and examples
-- [GitHub Blog: Lessons from 2,500 repos](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/) — What works and what doesn't
-- [Official Codex Best Practices](https://developers.openai.com/codex/learn/best-practices) — OpenAI's guidance
-- [Official AGENTS.md Guide](https://developers.openai.com/codex/guides/agents-md) — Setup and cascading rules
-
-## Contributing
-
-Contributions welcome. This is a living document — if you've learned a lesson the hard way that should be in here, open a PR.
 
 ## License
 
-MIT — Use it, fork it, adapt it, share it.
+MIT. Use, fork, adapt, and share.
