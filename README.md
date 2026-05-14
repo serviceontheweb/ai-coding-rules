@@ -12,7 +12,7 @@ The goal is not to create a large agent harness. The goal is to give every repo 
 - `CLAUDE.md` - Claude Code bridge that imports `AGENTS.md`.
 - `LESSONS.md` template - persistent log of reusable mistakes and fixes.
 - `CHANGELOG.md` template - human-readable record of work completed by humans and agents.
-- `rules/` - modular rule packs for safety, validation, memory, git workflow, deployment, and context discipline.
+- `rules/` - modular rule packs for safety, validation, memory, git workflow, deployment, context discipline, and production discipline.
 - `skills/` - reusable workflows for onboarding, security checks, validation, closeout, and context-safe inspection.
 - `adapters/` - tool-specific notes for Codex, Claude Code, GitHub Copilot, Cursor, Windsurf, and Aider.
 - `docs/` - public documentation suitable for GitHub Pages.
@@ -103,6 +103,16 @@ Agents must not:
 - deploy, force-push, reset hard, or change production data without explicit approval;
 - claim validation passed unless it actually ran and passed;
 - rewrite large areas of code when a narrow patch will solve the task.
+
+## Production Discipline Rule Packs
+
+The production discipline rule packs help agents keep running systems, documentation, and repository history aligned without exposing private operational details.
+
+- **Deployment Integrity** (`rules/deployment-integrity.md`) keeps deployed code, process definitions, and version control aligned. It treats the repository as the source of truth and requires drift to be reconciled before new work builds on it.
+- **Schema Discipline** (`rules/schema-discipline.md`) requires database schema changes to live in ordered, committed migrations rather than hidden application startup logic or undocumented manual changes.
+- **Status Truthfulness** (`rules/status-truthfulness.md`) requires completion, validation, deployment, and progress claims to match evidence from commands, code, commits, or documented limitations.
+- **No Phantom References** (`rules/no-phantom-references.md`) requires routes, tables, columns, processes, imports, and dependencies referenced by code or docs to either exist or be removed.
+- **Sanitized seeded lesson** (`templates/LESSONS-seeded.md`) provides a public-safe starter lesson about deployment drift and source-of-truth discipline.
 
 ## Docs and wiki
 

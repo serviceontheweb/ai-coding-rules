@@ -162,6 +162,15 @@ Add project-specific rules below this section. More specific rules override gene
 
 `ai-coding-rules` is a public documentation and template pack for AI coding agent operating rules. It provides reusable `AGENTS.md` rules, compatibility adapters, modular rule pages, skills, templates, docs, and GitHub wiki source pages.
 
+### Modular rule packs
+
+Reference these reusable rule packs when applying or adapting this repository:
+
+- `rules/deployment-integrity.md` - keep deployed code, process definitions, and version control aligned.
+- `rules/schema-discipline.md` - require schema changes to be represented by committed migrations.
+- `rules/status-truthfulness.md` - prevent overstated completion, validation, or deployment claims.
+- `rules/no-phantom-references.md` - remove or implement references to missing routes, data objects, processes, and dependencies.
+
 ### Tech stack
 
 Markdown-first documentation repository. No application runtime, database, package manager, or production service is required for normal edits.

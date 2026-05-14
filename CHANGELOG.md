@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-05-14
+
+| Author | Type | Description |
+|--------|------|-------------|
+| Codex | docs | Added sanitized production discipline rule packs, seeded lesson template, documentation, and wiki pages |
+
 ## 2026-05-10
 
 | Author | Type | Description |

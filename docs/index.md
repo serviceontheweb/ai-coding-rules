@@ -64,6 +64,7 @@ your-project/
 ## Key docs
 
 - [Context Discipline](context-discipline.md)
+- [Production Discipline](production-discipline.md)
 - [Safety Rules](safety-rules.md)
 - [Lessons System](lessons-system.md)
 - [Compatibility](compatibility.md)

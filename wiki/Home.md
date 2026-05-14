@@ -16,6 +16,7 @@ This project provides lightweight, tool-neutral rules for AI coding agents. It h
 - [Getting Started](Getting-Started)
 - [Compatibility](Compatibility)
 - [Context Discipline](Context-Discipline)
+- [Production Discipline](Production-Discipline)
 - [Safety Rules](Safety-Rules)
 - [Lessons System](Lessons-System)
 - [Publishing Guide](Publishing-Guide)

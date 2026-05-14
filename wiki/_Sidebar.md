@@ -4,6 +4,7 @@
 - [Getting Started](Getting-Started)
 - [Compatibility](Compatibility)
 - [Context Discipline](Context-Discipline)
+- [Production Discipline](Production-Discipline)
 - [Safety Rules](Safety-Rules)
 - [Lessons System](Lessons-System)
 - [Publishing Guide](Publishing-Guide)
