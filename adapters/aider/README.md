@@ -1,15 +1,15 @@
 # Aider Adapter
 
-Use this adapter when a project uses Aider.
+Aider can use this framework as project guidance even when instructions are passed manually.
 
-## Recommended approach
+## Setup
 
-- Keep `AGENTS.md` as the canonical repository contract.
-- Copy the most important rules into Aider's convention or instruction file if needed.
-- Keep the copied rules short: safety, validation, context discipline, and project commands.
+1. Copy `core/AGENTS.md` to the project root as `AGENTS.md`.
+2. Reference `AGENTS.md` in Aider startup notes or project conventions.
+3. Add only task-relevant files to the chat.
 
-## Suggested convention content
+## Notes
 
-```md
-Follow AGENTS.md. Make minimal safe changes. Do not expose secrets. Ask before destructive or production actions. Use targeted validation and summarize changed files.
-```
+- Keep context discipline strict.
+- Confirm validation commands before reporting completion.
+- Ask before destructive or production actions.

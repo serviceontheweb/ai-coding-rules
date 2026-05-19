@@ -1,10 +1,17 @@
 # Codex Adapter
 
-Use `AGENTS.md` as the root project instruction file.
+Codex reads `AGENTS.md` as the project operating contract.
 
-## Safe default config
+## Setup
 
-Suggested default:
+1. Copy `core/AGENTS.md` to the project root as `AGENTS.md`.
+2. Add project-specific facts below the core rules.
+3. Add `LESSONS.md` and `CHANGELOG.md` from `memory/` templates when useful.
+4. Add skills only when the project benefits from reusable workflows.
+
+## Safe Default Config
+
+Example local configuration:
 
 ```toml
 approval_policy = "on-request"
@@ -16,10 +23,8 @@ network_access = false
 
 Turn on network access only for tasks that need package downloads, external research, or remote APIs.
 
-## Session rules
+## Notes
 
-- Read `AGENTS.md` first.
-- Read `LESSONS.md` before changes.
-- Use bounded command output.
-- Ask before destructive or production actions.
-- Run validation before completion.
+- Keep root instructions concise.
+- Use `core/CONTEXT.md` for bounded inspection patterns.
+- Use `policies/*.yaml` as examples for future machine-readable checks.

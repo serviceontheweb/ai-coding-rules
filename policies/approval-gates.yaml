@@ -1,0 +1,36 @@
+version: 1
+description: Generic approval gates for AI coding agents.
+
+operations:
+  destructive_file_change:
+    risk: critical
+    requires_human_approval: true
+    examples:
+      - delete files
+      - remove directories
+      - reset working tree
+
+  deployment:
+    risk: critical
+    requires_human_approval: true
+    requires_rollback_notes: true
+
+  production_data_change:
+    risk: critical
+    requires_human_approval: true
+    requires_backup_or_recovery_plan: true
+
+  credential_access:
+    risk: critical
+    requires_human_approval: true
+    may_print_sensitive_values: false
+
+  dependency_update:
+    risk: medium
+    requires_review: true
+    requires_validation: true
+
+  documentation_update:
+    risk: low
+    requires_human_approval: false
+    requires_validation: true

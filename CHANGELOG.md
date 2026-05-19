@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-05-19
+
+| Author | Type | Description | Validation | Affected files or areas |
+|--------|------|-------------|------------|-------------------------|
+| Codex | refactor | Introduced Core + Extensions architecture, modular skills, framework templates, adapter normalization, memory templates, policy examples, and compatibility pointers | `rg` private-term scan passed; `git diff --check` passed; skill line counts checked | `core/`, `skills/`, `templates/`, `adapters/`, `policies/`, `memory/`, `docs/`, legacy pointer files |
+
 ## 2026-05-14
 
 | Author | Type | Description |

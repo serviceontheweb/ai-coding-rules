@@ -1,0 +1,25 @@
+version: 1
+description: Generic deployment integrity policy example.
+
+source_of_truth:
+  repository_required: true
+  deployed_code_must_match_committed_code: true
+  direct_server_edits_allowed: false
+
+process_definitions:
+  must_be_version_controlled: true
+  examples:
+    - systemd unit
+    - process manager config
+    - container compose file
+    - platform deployment config
+
+deployment:
+  requires_human_approval: true
+  preferred_method: committed_pipeline_or_git_pull
+  manual_file_copy_allowed: false
+
+verification:
+  require_head_or_artifact_match: true
+  require_reproducible_steps: true
+  require_rollback_notes_for_high_risk_changes: true

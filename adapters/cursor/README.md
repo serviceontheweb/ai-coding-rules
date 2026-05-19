@@ -1,18 +1,15 @@
 # Cursor Adapter
 
-Use this adapter when a project uses Cursor.
+Cursor can reference the same project contract used by other agents.
 
-## Recommended approach
+## Setup
 
-- Keep `AGENTS.md` as the source of truth.
-- Copy the concise operating rules into Cursor's project rules format if needed.
-- Keep tool-specific Cursor rules short.
-- Put long project lessons in `LESSONS.md`, not in always-loaded rules.
+1. Copy `core/AGENTS.md` to the project root as `AGENTS.md`.
+2. Add a Cursor project rule that points to `AGENTS.md`.
+3. Keep tool-specific notes short.
 
-## Suggested Cursor rule content
+## Suggested Rule
 
 ```md
-Follow AGENTS.md for repository rules, safety requirements, validation, context discipline, LESSONS.md, and CHANGELOG.md.
-
-Before editing, inspect only relevant files. Use bounded command output. Ask before destructive, production, credential, or deployment actions.
+Follow AGENTS.md. Keep changes scoped, inspect context with bounded output, protect secrets, ask before destructive or production actions, and report validation honestly.
 ```

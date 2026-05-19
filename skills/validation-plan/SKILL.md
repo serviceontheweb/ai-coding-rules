@@ -5,11 +5,25 @@ description: Use before reporting completion, especially for medium or high risk
 
 # Validation Plan
 
-## Goal
+## Purpose
 
 Match validation to the risk of the change.
 
-## Steps
+## Triggers
+
+- Before reporting completion.
+- Before merging or committing a non-trivial change.
+- After changes to logic, UI, dependencies, databases, auth, or deployment.
+
+## Checklist
+
+- Classify risk.
+- Prefer targeted validation first.
+- Use broader validation for shared or high-risk behavior.
+- Bound command output.
+- Report exact commands and results.
+
+## Execution Pattern
 
 1. Classify risk as low, medium, or high.
 2. Choose targeted validation first.
@@ -17,20 +31,8 @@ Match validation to the risk of the change.
 4. Run commands with bounded output.
 5. Report exact commands and results.
 
-## Risk guide
+## Escalation Conditions
 
-| Risk | Examples | Validation |
-|---|---|---|
-| Low | Docs, comments, typo | Review changed file. |
-| Medium | Local logic, UI, small refactor | Targeted test/lint/build/syntax check. |
-| High | Auth, payments, DB, deployment | Targeted and broader tests plus rollback notes. |
-
-## Final report
-
-```text
-Validation performed:
-- ...
-Validation not run:
-- ... because ...
-```
-
+- Validation requires network, external services, production data, or new dependencies.
+- Required validation command is unknown.
+- Validation fails and the result affects release safety.

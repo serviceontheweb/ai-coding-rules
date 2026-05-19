@@ -1,18 +1,5 @@
-# Lessons Learned
+# Lessons Template
 
-> Append-only log. Never delete entries. Read before every session.
-> Each entry should be specific enough that a future agent (with no other context) can avoid the same mistake.
+Compatibility pointer.
 
-## Format
-
-```markdown
-### YYYY-MM-DD — [Short Descriptive Title]
-**What happened:** [What went wrong or what was discovered]
-**Root cause:** [Why it happened — be specific]
-**Lesson:** [What to remember — actionable rule]
-**Action:** [What was done about it — code change, rule added, etc.]
-```
-
----
-
-<!-- Agents: append new lessons below this line -->
+Use `memory/lessons-template.md`.

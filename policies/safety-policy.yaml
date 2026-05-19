@@ -1,0 +1,32 @@
+version: 1
+description: Generic safety policy example for public repositories.
+
+protected_patterns:
+  - ".env"
+  - ".env.*"
+  - "*.pem"
+  - "*.key"
+  - "id_rsa"
+  - "id_ed25519"
+
+protected_data:
+  secrets:
+    action: do_not_read_or_print
+  credentials:
+    action: do_not_read_or_print
+  customer_data:
+    action: minimize_access
+  production_logs:
+    action: inspect_only_with_approval_when_sensitive
+
+blocked_without_approval:
+  - destructive_commands
+  - force_push
+  - production_deployment
+  - production_database_change
+  - recursive_permission_change
+
+reporting:
+  validation_claims_require_evidence: true
+  uncertainty_must_be_stated: true
+  public_examples_only: true

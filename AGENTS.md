@@ -1,8 +1,8 @@
-# AGENTS.md - Universal AI Coding Rules
+# AGENTS.md - Repository Instructions
 
 This file is the operating contract for AI coding agents working in this repository.
 
-Keep it concise. Put deep explanations in `rules/`, workflows in `skills/`, public docs in `docs/`, and project-specific lessons in `LESSONS.md`.
+This repository is being refactored around `core/` plus focused extensions. Keep new public material generic, concise, and reusable.
 
 ## Start every session
 
@@ -160,16 +160,19 @@ Add project-specific rules below this section. More specific rules override gene
 
 ### Project overview
 
-`ai-coding-rules` is a public documentation and template pack for AI coding agent operating rules. It provides reusable `AGENTS.md` rules, compatibility adapters, modular rule pages, skills, templates, docs, and GitHub wiki source pages.
+`ai-coding-rules` is a public documentation and template pack for AI coding agent governance. It provides reusable core rules, skills, templates, tool adapters, memory templates, and machine-readable policy examples.
 
-### Modular rule packs
+### Canonical architecture
 
-Reference these reusable rule packs when applying or adapting this repository:
+- `core/` - shared operating contract.
+- `skills/` - short modular workflows.
+- `templates/` - starter instructions for project types.
+- `adapters/` - tool-specific setup notes.
+- `policies/` - generic YAML policy examples.
+- `memory/` - reusable lessons and decision templates.
+- `docs/` - public documentation.
 
-- `rules/deployment-integrity.md` - keep deployed code, process definitions, and version control aligned.
-- `rules/schema-discipline.md` - require schema changes to be represented by committed migrations.
-- `rules/status-truthfulness.md` - prevent overstated completion, validation, or deployment claims.
-- `rules/no-phantom-references.md` - remove or implement references to missing routes, data objects, processes, and dependencies.
+Legacy files may remain as compatibility pointers, but new duplicated long-form content should not be added.
 
 ### Tech stack
 
@@ -188,5 +191,4 @@ git diff --check
 
 - Do not publish compatibility claims that have not been verified.
 - Do not add credentials, private company rules, customer details, or machine-specific paths.
-- Do not remove the wiki source pages unless the GitHub wiki is updated at the same time.
 - Do not rewrite the public safety rules to weaken secret handling, destructive-command approval, or validation requirements.

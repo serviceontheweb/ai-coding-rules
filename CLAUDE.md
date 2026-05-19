@@ -13,4 +13,4 @@ Before risky changes:
 - update `LESSONS.md` only for durable reusable lessons;
 - update `CHANGELOG.md` only for completed user-visible work.
 
-When this file grows beyond a concise bridge, move topic-specific guidance into `.claude/rules/` or `rules/`.
+When this file grows beyond a concise bridge, move shared guidance into `core/` or a focused skill.

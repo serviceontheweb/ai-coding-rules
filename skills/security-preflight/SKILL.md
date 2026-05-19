@@ -5,9 +5,15 @@ description: Use before auth, billing, secrets, deployment, filesystem deletion,
 
 # Security Preflight
 
-## Goal
+## Purpose
 
 Identify risk before making sensitive changes.
+
+## Triggers
+
+- Auth, billing, permission, deployment, filesystem deletion, dependency, or database work.
+- Secret, credential, token, or private data access.
+- Any action that may affect production.
 
 ## Checklist
 
@@ -18,7 +24,15 @@ Identify risk before making sensitive changes.
 - Is user approval required?
 - Are there relevant lessons in `LESSONS.md`?
 
-## Approval required for
+## Execution Pattern
+
+1. Classify risk.
+2. Identify approval gates.
+3. State validation and rollback notes.
+4. Ask for approval when required.
+5. Proceed only within approved scope.
+
+## Escalation Conditions
 
 - destructive commands;
 - deployment;
@@ -26,14 +40,3 @@ Identify risk before making sensitive changes.
 - secret access;
 - force-push or history rewrite;
 - recursive permission changes.
-
-## Output
-
-```text
-Risk level: low | medium | high
-Approval required: yes | no
-Reason: ...
-Validation plan: ...
-Rollback plan: ...
-```
-

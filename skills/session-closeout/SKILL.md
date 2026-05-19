@@ -5,11 +5,26 @@ description: Use when finishing a coding session to summarize changes, validatio
 
 # Session Closeout
 
-## Goal
+## Purpose
 
 Finish work with a clear, honest record.
 
-## Steps
+## Triggers
+
+- User request is complete.
+- Work is paused with partial changes.
+- Before committing, handing off, or final response.
+
+## Checklist
+
+- Check repository status.
+- Review changed files.
+- Confirm validation status.
+- Update lessons only for durable knowledge.
+- Update changelog only for completed user-visible work.
+- Report unresolved risks.
+
+## Execution Pattern
 
 1. Check `git status --short`.
 2. Review changed files with bounded diff output.
@@ -18,20 +33,8 @@ Finish work with a clear, honest record.
 5. Update `CHANGELOG.md` only for completed user-visible changes.
 6. Summarize unresolved risks.
 
-## Output format
+## Escalation Conditions
 
-```text
-Changed:
-- ...
-Validation:
-- ...
-Lessons updated:
-- yes/no
-Changelog updated:
-- yes/no
-Risks:
-- ...
-Files:
-- ...
-```
-
+- The working tree includes unrelated user changes that conflict with the task.
+- Validation cannot run for a high-risk change.
+- A status file would claim work is complete without evidence.
