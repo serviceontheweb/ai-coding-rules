@@ -1,6 +1,8 @@
 ---
 name: security-preflight
-description: Use before auth, billing, secrets, deployment, filesystem deletion, dependency, or database changes.
+description:
+  Use before auth, billing, secrets, deployment, filesystem deletion,
+  dependency, or database changes.
 ---
 
 # Security Preflight
@@ -11,13 +13,15 @@ Identify risk before making sensitive changes.
 
 ## Triggers
 
-- Auth, billing, permission, deployment, filesystem deletion, dependency, or database work.
+- Auth, billing, permission, deployment, filesystem deletion, dependency, or
+  database work.
 - Secret, credential, token, or private data access.
 - Any action that may affect production.
 
 ## Checklist
 
-- Does this touch secrets, auth, payments, billing, permissions, production, or customer data?
+- Does this touch secrets, auth, payments, billing, permissions, production, or
+  customer data?
 - Could this delete or overwrite files?
 - Could this change production behavior?
 - Is rollback possible?

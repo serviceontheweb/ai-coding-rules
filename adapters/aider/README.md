@@ -1,6 +1,7 @@
 # Aider Adapter
 
-Aider can use this framework as project guidance even when instructions are passed manually.
+Aider can use this framework as project guidance even when instructions are
+passed manually.
 
 ## Setup
 
@@ -13,3 +14,5 @@ Aider can use this framework as project guidance even when instructions are pass
 - Keep context discipline strict.
 - Confirm validation commands before reporting completion.
 - Ask before destructive or production actions.
+- See the
+  [Tool Adapters wiki page](https://github.com/serviceontheweb/ai-coding-rules/wiki/Tool-Adapters).

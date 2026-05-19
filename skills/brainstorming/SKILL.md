@@ -1,6 +1,8 @@
 ---
 name: brainstorming
-description: Use when the user asks for options, architecture direction, tradeoffs, naming, planning, or design alternatives.
+description:
+  Use when the user asks for options, architecture direction, tradeoffs, naming,
+  planning, or design alternatives.
 ---
 
 # Brainstorming

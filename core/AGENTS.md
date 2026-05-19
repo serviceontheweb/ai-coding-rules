@@ -1,6 +1,7 @@
 # Core Agent Operating Contract
 
-Use this file as the baseline `AGENTS.md` for a project. Keep project-specific details in a short override section instead of editing the core rules.
+Use this file as the baseline `AGENTS.md` for a project. Keep project-specific
+details in a short override section instead of editing the core rules.
 
 ## Session Start
 
@@ -25,18 +26,20 @@ Use this file as the baseline `AGENTS.md` for a project. Keep project-specific d
 - Keep changes scoped to the task.
 - Use readable names and focused functions.
 - Add comments only for non-obvious decisions.
-- Do not add dependencies unless the project needs them and the user approves when required.
-- Avoid logging secrets, credentials, private data, or sensitive operational details.
+- Do not add dependencies unless the project needs them and the user approves
+  when required.
+- Avoid logging secrets, credentials, private data, or sensitive operational
+  details.
 
 ## Validation
 
 Match validation to risk:
 
-| Risk | Examples | Minimum validation |
-|---|---|---|
-| Low | Docs, comments, typo fixes | Review changed files and formatting |
-| Medium | Local logic, UI behavior, small refactors | Run targeted tests, lint, build, or syntax checks |
-| High | Auth, payments, databases, deployment, security | Run targeted and broader checks; document rollback notes |
+- Low: docs, comments, and typo fixes. Review changed files and formatting.
+- Medium: local logic, UI behavior, and small refactors. Run targeted tests,
+  lint, build, or syntax checks.
+- High: auth, payments, databases, deployment, and security. Run targeted and
+  broader checks; document rollback notes.
 
 If validation cannot run, say why and list the command that should be run.
 

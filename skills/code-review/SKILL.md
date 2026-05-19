@@ -1,6 +1,8 @@
 ---
 name: code-review
-description: Use when reviewing code, pull requests, diffs, architecture changes, or implementation quality.
+description:
+  Use when reviewing code, pull requests, diffs, architecture changes, or
+  implementation quality.
 ---
 
 # Code Review
@@ -35,5 +37,6 @@ Find concrete defects and risks before summarizing style or preferences.
 ## Escalation Conditions
 
 - Review requires reading secrets or private data.
-- The diff affects production deployment, database migrations, auth, billing, or permissions.
+- The diff affects production deployment, database migrations, auth, billing, or
+  permissions.
 - Validation cannot run and the residual risk is high.

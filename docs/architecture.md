@@ -1,6 +1,7 @@
 # Architecture
 
-This repository is organized as a small governance framework for AI coding agents.
+This repository is organized as a small governance framework for AI coding
+agents.
 
 ## Core + Extensions
 

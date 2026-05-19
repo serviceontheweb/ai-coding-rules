@@ -1,8 +1,10 @@
 # AGENTS.md - Repository Instructions
 
-This file is the operating contract for AI coding agents working in this repository.
+This file is the operating contract for AI coding agents working in this
+repository.
 
-This repository is being refactored around `core/` plus focused extensions. Keep new public material generic, concise, and reusable.
+This repository is being refactored around `core/` plus focused extensions. Keep
+new public material generic, concise, and reusable.
 
 ## Start every session
 
@@ -11,7 +13,8 @@ This repository is being refactored around `core/` plus focused extensions. Keep
 3. Read the latest relevant entries in `CHANGELOG.md` if it exists.
 4. Inspect only the files needed for the task.
 5. State assumptions when context is incomplete.
-6. Ask for approval before destructive, production, credential, or deployment actions.
+6. Ask for approval before destructive, production, credential, or deployment
+   actions.
 
 ## Operating principles
 
@@ -19,7 +22,8 @@ This repository is being refactored around `core/` plus focused extensions. Keep
 - Prefer existing project patterns over new abstractions.
 - Do not rewrite unrelated code.
 - Do not hide uncertainty.
-- Do not claim success until validation has run or the limitation is clearly stated.
+- Do not claim success until validation has run or the limitation is clearly
+  stated.
 - Preserve user work and local changes.
 - Keep explanations practical and specific.
 
@@ -45,14 +49,16 @@ git diff
 npm test
 ```
 
-If a command may produce a lot of output, pipe it through `head`, `tail`, or `head -c`.
+If a command may produce a lot of output, pipe it through `head`, `tail`, or
+`head -c`.
 
 ## Safety rules
 
 Never do these without explicit approval:
 
 - delete files or directories;
-- run `rm -rf`, `git reset --hard`, `git clean -fd`, or similar destructive commands;
+- run `rm -rf`, `git reset --hard`, `git clean -fd`, or similar destructive
+  commands;
 - force-push, rebase shared branches, or rewrite published history;
 - deploy to production;
 - alter production databases or live customer data;
@@ -81,13 +87,14 @@ Always protect these files and values:
 
 Match validation to risk:
 
-| Risk | Examples | Minimum validation |
-|---|---|---|
-| Low | Docs, comments, typo fix | Check affected file and formatting. |
-| Medium | Local logic, UI behavior, small refactor | Run targeted tests, lint, or syntax checks. |
-| High | Auth, payments, database, deployment, security | Run targeted and broader tests; document rollback path. |
+- Low: docs, comments, and typo fixes. Check the affected file and formatting.
+- Medium: local logic, UI behavior, and small refactors. Run targeted tests,
+  lint, or syntax checks.
+- High: auth, payments, databases, deployment, and security. Run targeted and
+  broader tests; document rollback path.
 
-If validation cannot run, say exactly why and list the commands that should be run.
+If validation cannot run, say exactly why and list the commands that should be
+run.
 
 ## Git rules
 
@@ -131,7 +138,8 @@ Each entry should include:
 - validation performed;
 - affected files or areas.
 
-Do not add a changelog entry for failed experiments unless the failure changed the project state or documents an important decision.
+Do not add a changelog entry for failed experiments unless the failure changed
+the project state or documents an important decision.
 
 ## Communication rules
 
@@ -156,11 +164,14 @@ Final response:
 
 ## Project overrides
 
-Add project-specific rules below this section. More specific rules override general rules only when they do not weaken safety.
+Add project-specific rules below this section. More specific rules override
+general rules only when they do not weaken safety.
 
 ### Project overview
 
-`ai-coding-rules` is a public documentation and template pack for AI coding agent governance. It provides reusable core rules, skills, templates, tool adapters, memory templates, and machine-readable policy examples.
+`ai-coding-rules` is a public documentation and template pack for AI coding
+agent governance. It provides reusable core rules, skills, templates, tool
+adapters, memory templates, and machine-readable policy examples.
 
 ### Canonical architecture
 
@@ -172,11 +183,13 @@ Add project-specific rules below this section. More specific rules override gene
 - `memory/` - reusable lessons and decision templates.
 - `docs/` - public documentation.
 
-Legacy files may remain as compatibility pointers, but new duplicated long-form content should not be added.
+Legacy files may remain as compatibility pointers, but new duplicated long-form
+content should not be added.
 
 ### Tech stack
 
-Markdown-first documentation repository. No application runtime, database, package manager, or production service is required for normal edits.
+Markdown-first documentation repository. No application runtime, database,
+package manager, or production service is required for normal edits.
 
 ### Important commands
 
@@ -190,5 +203,7 @@ git diff --check
 ### Do not change
 
 - Do not publish compatibility claims that have not been verified.
-- Do not add credentials, private company rules, customer details, or machine-specific paths.
-- Do not rewrite the public safety rules to weaken secret handling, destructive-command approval, or validation requirements.
+- Do not add credentials, private company rules, customer details, or
+  machine-specific paths.
+- Do not rewrite the public safety rules to weaken secret handling,
+  destructive-command approval, or validation requirements.

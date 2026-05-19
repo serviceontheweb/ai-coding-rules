@@ -1,13 +1,15 @@
 # Safety
 
-Safety rules protect the repository, users, production systems, and sensitive data.
+Safety rules protect the repository, users, production systems, and sensitive
+data.
 
 ## Approval Required
 
 Ask for explicit human approval before:
 
 - deleting files or directories;
-- running destructive commands such as `rm -rf`, `git reset --hard`, or `git clean -fd`;
+- running destructive commands such as `rm -rf`, `git reset --hard`, or
+  `git clean -fd`;
 - force-pushing, rebasing shared branches, or rewriting published history;
 - deploying or changing production infrastructure;
 - altering production databases or live customer data;
@@ -25,7 +27,8 @@ Do not expose or copy:
 
 ## High-Risk Work
 
-For auth, payments, permissions, databases, deployments, or security-sensitive changes:
+For auth, payments, permissions, databases, deployments, or security-sensitive
+changes:
 
 1. State the intended change.
 2. Identify the risk.
@@ -35,4 +38,5 @@ For auth, payments, permissions, databases, deployments, or security-sensitive c
 
 ## Public Repository Rule
 
-Keep examples generic. Do not include private organization names, non-public operational details, credentials, or proprietary workflows.
+Keep examples generic. Do not include private organization names, non-public
+operational details, credentials, or proprietary workflows.

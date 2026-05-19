@@ -1,6 +1,8 @@
 ---
 name: safety-check
-description: Use before destructive, production, credential, dependency, database, auth, payment, or permission changes.
+description:
+  Use before destructive, production, credential, dependency, database, auth,
+  payment, or permission changes.
 ---
 
 # Safety Check

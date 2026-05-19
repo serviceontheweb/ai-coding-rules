@@ -1,6 +1,8 @@
 ---
 name: validation-plan
-description: Use before reporting completion, especially for medium or high risk code changes.
+description:
+  Use before reporting completion, especially for medium or high risk code
+  changes.
 ---
 
 # Validation Plan
@@ -33,6 +35,7 @@ Match validation to the risk of the change.
 
 ## Escalation Conditions
 
-- Validation requires network, external services, production data, or new dependencies.
+- Validation requires network, external services, production data, or new
+  dependencies.
 - Required validation command is unknown.
 - Validation fails and the result affects release safety.

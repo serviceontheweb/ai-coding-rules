@@ -1,3 +1,5 @@
+# Claude Code Instructions
+
 @AGENTS.md
 
 ## Claude Code notes
@@ -13,4 +15,5 @@ Before risky changes:
 - update `LESSONS.md` only for durable reusable lessons;
 - update `CHANGELOG.md` only for completed user-visible work.
 
-When this file grows beyond a concise bridge, move shared guidance into `core/` or a focused skill.
+When this file grows beyond a concise bridge, move shared guidance into `core/`
+or a focused skill.

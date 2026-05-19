@@ -1,12 +1,14 @@
 # Migration Guide
 
-Use this guide to move from a duplicated instruction set to the Core + Extensions layout.
+Use this guide to move from a duplicated instruction set to the Core +
+Extensions layout.
 
 ## 1. Find the Source of Truth
 
 Choose one baseline contract: `core/AGENTS.md`.
 
-Move shared rules into core files. Replace repeated copies with links or short pointers.
+Move shared rules into core files. Replace repeated copies with links or short
+pointers.
 
 ## 2. Split by Responsibility
 
@@ -28,8 +30,10 @@ Before publishing, search for:
 
 ## 4. Keep Legacy Entry Points Brief
 
-If existing users rely on older files, keep those files as short compatibility pointers during migration.
+If existing users rely on older files, keep those files as short compatibility
+pointers during migration.
 
 ## 5. Validate the Refactor
 
-Run a bounded search for prohibited private terms and inspect changed markdown for duplicate long-form sections.
+Run a bounded search for prohibited private terms and inspect changed markdown
+for duplicate long-form sections.

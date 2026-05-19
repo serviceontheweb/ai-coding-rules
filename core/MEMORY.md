@@ -1,6 +1,7 @@
 # Memory
 
-Use memory files to preserve durable project knowledge without turning them into session logs.
+Use memory files to preserve durable project knowledge without turning them into
+session logs.
 
 ## `LESSONS.md`
 
@@ -13,7 +14,8 @@ Add a lesson when:
 - a command, dependency, deployment step, or config has a gotcha;
 - a user corrects a stable preference.
 
-Do not add one-off debugging notes, guesses, temporary plans, or private details.
+Do not add one-off debugging notes, guesses, temporary plans, or private
+details.
 
 ## `CHANGELOG.md`
 
@@ -28,8 +30,10 @@ Each entry should include:
 - validation performed;
 - affected files or areas.
 
-Do not claim work is done unless the repository contains evidence and validation status is clear.
+Do not claim work is done unless the repository contains evidence and validation
+status is clear.
 
 ## Architecture Decisions
 
-Use a short architecture decision record when a decision changes long-term project structure, interfaces, storage, deployment, or workflow.
+Use a short architecture decision record when a decision changes long-term
+project structure, interfaces, storage, deployment, or workflow.

@@ -31,7 +31,8 @@ Use only the adapters for tools your project actually uses:
 
 ## 4. Add Skills Selectively
 
-Copy skills only when they match recurring work. Keep them short and project-neutral.
+Copy skills only when they match recurring work. Keep them short and
+project-neutral.
 
 ## 5. Validate
 

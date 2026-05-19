@@ -1,6 +1,8 @@
 ---
 name: session-closeout
-description: Use when finishing a coding session to summarize changes, validation, risks, lessons, and changelog entries.
+description:
+  Use when finishing a coding session to summarize changes, validation, risks,
+  lessons, and changelog entries.
 ---
 
 # Session Closeout

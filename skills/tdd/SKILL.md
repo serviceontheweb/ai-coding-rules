@@ -1,6 +1,7 @@
 ---
 name: tdd
-description: Use when adding or changing behavior that can be protected with focused tests.
+description:
+  Use when adding or changing behavior that can be protected with focused tests.
 ---
 
 # Test-Driven Development
@@ -34,6 +35,7 @@ Use tests to define behavior before or alongside implementation.
 
 ## Escalation Conditions
 
-- Test setup requires installing dependencies, changing services, or accessing production-like data.
+- Test setup requires installing dependencies, changing services, or accessing
+  production-like data.
 - No reliable local test path exists.
 - The implementation touches high-risk domains.

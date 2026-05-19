@@ -1,0 +1,391 @@
+<!-- wp:paragraph -->
+<p>
+  AI-assisted development is becoming a normal part of software engineering. The
+  hard part is no longer whether a coding agent can write code. The hard part is
+  whether that work can be made safe, reviewable, repeatable, and aligned with
+  the way a real engineering team operates.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  At small scale, a prompt can feel like enough. You describe the task, the
+  agent edits files, and the result looks useful. At larger scale, that approach
+  breaks down. The agent needs to understand project boundaries, validation
+  standards, safety gates, memory, deployment constraints, and workflow
+  expectations. Without those controls, AI coding becomes another source of
+  operational drift.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  This is the reason SkyX is investing in AI engineering governance: not as a
+  heavy process layer, but as practical engineering discipline for teams using
+  AI coding agents in real repositories.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The Problem</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  AI coding agents are powerful because they can move quickly across a codebase.
+  That same speed creates risk when the repository does not define how the agent
+  should work.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The common failure modes are familiar:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+  <li>
+    Unsafe deployments or production-impacting actions without explicit
+    approval.
+  </li>
+  <li>
+    Hallucinated validation, where tests are described as passing even though
+    they did not run.
+  </li>
+  <li>Missing project memory, causing agents to repeat known mistakes.</li>
+  <li>
+    Unbounded context usage, where large diffs, logs, and searches flood the
+    session.
+  </li>
+  <li>Inconsistent workflows between tools, contributors, and sessions.</li>
+  <li>
+    Operational drift between documentation, repository state, deployed code,
+    and live systems.
+  </li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>
+  These are not prompt-quality problems. They are engineering governance
+  problems.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Why Prompting Alone Fails</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  Prompts are useful for task intent. They are weak as long-term operating
+  controls.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  A prompt can tell an agent what to do now. It does not reliably define what
+  the agent must always read first, what actions require approval, how
+  validation should be reported, which files contain durable project lessons, or
+  how different tools should share the same operating model.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  As teams adopt multiple AI coding tools, this becomes more obvious. One tool
+  may read <code>AGENTS.md</code>. Another may expect a tool-specific
+  instruction file. A third may rely on project rules or manually supplied
+  context. Without a shared standard, every tool develops its own partial
+  understanding of the repository.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  Prompting is still important. It just needs to sit inside a governance
+  structure that defines repeatable behavior.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Operational Discipline for AI Coding</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  AI development governance starts with a simple principle: the repository
+  should tell the agent how to work.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  That means keeping a small operating contract in the repository. It should
+  explain session startup, safety rules, validation expectations, memory usage,
+  git behavior, and project-specific constraints. For many AI coding workflows,
+  <code>AGENTS.md</code> is the right place for that contract.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  A good <code>AGENTS.md</code> file is not a long essay. It is a concise
+  engineering document that answers practical questions:
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+  <li>What must the agent read before editing?</li>
+  <li>Which actions require human approval?</li>
+  <li>How should the agent inspect the codebase?</li>
+  <li>How should validation be selected and reported?</li>
+  <li>Where are durable lessons recorded?</li>
+  <li>What project facts must not be guessed?</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>
+  This turns agent behavior from an improvised chat session into a repeatable
+  engineering workflow.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Context Discipline</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  Context is a limited engineering resource. Agents often fail when they inspect
+  too much too quickly: full diffs, large logs, broad searches, generated files,
+  dependency trees, or unrelated directories.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  Context discipline means the agent searches before reading, reads narrow
+  ranges, caps output, and summarizes findings before expanding scope. This
+  keeps decisions grounded in evidence without filling the session with noise.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:preformatted -->
+<pre class="wp-block-preformatted">
+Prefer:
+rg -n -m 20 "term" src/ 2&gt;&amp;1 | head -c 4000
+sed -n '1,180p' path/to/file
+git diff -- path/to/file 2&gt;&amp;1 | head -c 6000
+
+Avoid by default:
+cat large.log
+rg -n "term" .
+git diff</pre
+>
+<!-- /wp:preformatted -->
+
+<!-- wp:paragraph -->
+<p>
+  This is not about limiting the agent's capability. It is about making the
+  agent's inspection path auditable and proportional to the task.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Safety Gates</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  Coding agent safety depends on clear approval gates. Some actions should never
+  be treated as routine automation:
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+  <li>Deleting files or directories.</li>
+  <li>Running destructive commands.</li>
+  <li>Deploying or changing release state.</li>
+  <li>Altering live data.</li>
+  <li>Reading, printing, or transmitting secrets.</li>
+  <li>Force-pushing or rewriting shared history.</li>
+  <li>Changing permissions recursively.</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>
+  These gates should be explicit in the repository. They should not depend on
+  the agent remembering a previous conversation or interpreting vague intent.
+  The standard should be visible, version-controlled, and easy to review.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Project Memory</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  AI coding agents need durable memory, but not every session detail belongs in
+  memory. A useful memory system separates recurring lessons from temporary
+  notes.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  For example, a <code>LESSONS.md</code> file can record stable project
+  knowledge:
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+  <li>A command with a non-obvious gotcha.</li>
+  <li>A dependency constraint that affects future work.</li>
+  <li>A deployment rule that must not be bypassed.</li>
+  <li>A recurring mistake that should not be repeated.</li>
+  <li>A user preference that applies across sessions.</li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>
+  A changelog serves a different purpose. It records completed user-visible work
+  and the validation performed. Together, these files reduce repeated mistakes
+  and make agent-assisted work easier to audit.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Portable Governance</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  Governance should not be locked to a single AI coding tool. Teams may use
+  Codex, Claude Code, Cursor, GitHub Copilot, Aider, or other coding agents. The
+  operating model should travel across those tools.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>A practical structure looks like this:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:preformatted -->
+<pre class="wp-block-preformatted">
+Core Rules
+  ↓
+Skills
+  ↓
+Policies
+  ↓
+Memory
+  ↓
+Adapters
+  ↓
+AI Workflows</pre
+>
+<!-- /wp:preformatted -->
+
+<!-- wp:paragraph -->
+<p>
+  Core rules define the baseline. Skills define repeatable workflow modules.
+  Policies describe approval gates and risk levels in machine-readable form.
+  Memory stores durable lessons. Adapters map the same standard into specific
+  tools.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Why Tool-Neutral Standards Matter</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  Tool-neutral standards make AI engineering workflows more stable. They prevent
+  the repository from becoming a collection of disconnected prompt files, each
+  with slightly different safety rules and assumptions.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  The important distinction is source of truth. Tool-specific files can exist,
+  but they should point back to the repository's shared operating contract
+  wherever possible. This keeps coding agent safety, context discipline,
+  validation, and memory consistent across tools.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Future Direction</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>
+  The next step for AI workflow governance is making policies easier to validate
+  automatically. A repository can already define human-readable rules. Over
+  time, machine-readable policy files can help check whether high-risk
+  operations require approval, whether validation claims include evidence, and
+  whether project memory follows a consistent structure.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  This does not require a large platform. It starts with simple,
+  version-controlled files that define how agents should behave in real
+  engineering work.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">GitHub Repo + Wiki Links</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>SkyX has published a public reference project for this work:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:list -->
+<ul>
+  <li>
+    <a href="https://github.com/serviceontheweb/ai-coding-rules"
+      >GitHub repository: ai-coding-rules</a
+    >
+    — the framework and implementation files.
+  </li>
+  <li>
+    <a href="https://github.com/serviceontheweb/ai-coding-rules/wiki"
+      >GitHub Wiki</a
+    >
+    — the technical reference and architecture documentation.
+  </li>
+</ul>
+<!-- /wp:list -->
+
+<!-- wp:paragraph -->
+<p>
+  The repository is best understood as a lightweight governance framework for AI
+  coding agents. The wiki is the implementation-focused reference for
+  architecture, standards, workflows, policies, memory systems, and tool
+  adapters.
+</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>
+  If your team is moving from occasional AI coding experiments to operational AI
+  systems, the question is no longer whether agents can generate code. The
+  question is whether your engineering process gives them enough governance to
+  work safely at scale.
+</p>
+<!-- /wp:paragraph -->

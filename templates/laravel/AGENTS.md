@@ -14,7 +14,8 @@ Start with `core/AGENTS.md`, then add project-specific facts below.
 ## Local Rules
 
 - Put schema changes in migrations.
-- Use form requests, policies, and validation where the project already uses them.
+- Use form requests, policies, and validation where the project already uses
+  them.
 - Avoid direct production database changes.
 - Add focused feature or unit tests for behavior changes.
 

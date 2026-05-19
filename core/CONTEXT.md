@@ -28,4 +28,5 @@ git diff
 npm test
 ```
 
-Use unbounded commands only when the repository is small enough and the output risk is clear.
+Use unbounded commands only when the repository is small enough and the output
+risk is clear.

@@ -1,6 +1,8 @@
 ---
 name: context-discipline
-description: Use before inspecting a large repository, broad search result, large diff, or long command output.
+description:
+  Use before inspecting a large repository, broad search result, large diff, or
+  long command output.
 ---
 
 # Context Discipline
@@ -33,10 +35,12 @@ sed -n '1,180p' path/to/file
 git diff -- path/to/file 2>&1 | head -c 6000
 ```
 
-Avoid raw `cat`, broad `rg`, full `git diff`, and unbounded test output on large projects.
+Avoid raw `cat`, broad `rg`, full `git diff`, and unbounded test output on large
+projects.
 
 ## Escalation Conditions
 
-- The needed evidence appears to be in secrets, credentials, production logs, or private data.
+- The needed evidence appears to be in secrets, credentials, production logs, or
+  private data.
 - The user asks for broad extraction or export of sensitive material.
 - The task requires destructive cleanup to reduce output.

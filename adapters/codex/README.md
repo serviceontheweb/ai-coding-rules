@@ -11,7 +11,7 @@ Codex reads `AGENTS.md` as the project operating contract.
 
 ## Safe Default Config
 
-Example local configuration:
+Example local configuration lives at `adapters/codex/config.example.toml`:
 
 ```toml
 approval_policy = "on-request"
@@ -21,10 +21,15 @@ sandbox_mode = "workspace-write"
 network_access = false
 ```
 
-Turn on network access only for tasks that need package downloads, external research, or remote APIs.
+Turn on network access only for tasks that need package downloads, external
+research, or remote APIs.
 
 ## Notes
 
 - Keep root instructions concise.
 - Use `core/CONTEXT.md` for bounded inspection patterns.
 - Use `policies/*.yaml` as examples for future machine-readable checks.
+- See the wiki pages for
+  [AGENTS.md Standards](https://github.com/serviceontheweb/ai-coding-rules/wiki/AGENTS.md-Standards)
+  and
+  [Codex Integration](https://github.com/serviceontheweb/ai-coding-rules/wiki/Codex-Integration).

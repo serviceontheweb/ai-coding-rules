@@ -11,5 +11,12 @@ Cursor can reference the same project contract used by other agents.
 ## Suggested Rule
 
 ```md
-Follow AGENTS.md. Keep changes scoped, inspect context with bounded output, protect secrets, ask before destructive or production actions, and report validation honestly.
+Follow AGENTS.md. Keep changes scoped, inspect context with bounded output,
+protect secrets, ask before destructive or production actions, and report
+validation honestly.
 ```
+
+## Reference
+
+- [AGENTS.md Standards](https://github.com/serviceontheweb/ai-coding-rules/wiki/AGENTS.md-Standards)
+- [Cursor Integration](https://github.com/serviceontheweb/ai-coding-rules/wiki/Cursor-Integration)

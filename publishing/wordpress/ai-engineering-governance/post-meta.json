@@ -1,0 +1,33 @@
+{
+  "title": "AI Coding Without Governance Will Break at Scale",
+  "slug": "ai-coding-without-governance-will-break-at-scale",
+  "status": "publish",
+  "url": "https://www.skyx.co.uk/blog/ai-coding-without-governance-will-break-at-scale/",
+  "category": {
+    "name": "AI Engineering Governance",
+    "slug": "ai-engineering-governance"
+  },
+  "excerpt": "AI-assisted development needs more than prompts. It needs operating rules, safety gates, context discipline, project memory, workflow systems, and machine-readable policies.",
+  "seo": {
+    "meta_title": "AI Coding Without Governance Will Break at Scale | SkyX",
+    "meta_description": "AI coding governance requires more than prompts. Learn how AGENTS.md, safety gates, context discipline, project memory, workflow systems, and policies make AI-assisted development safer at scale.",
+    "focus_keyphrase": "AI coding governance",
+    "secondary_keywords": [
+      "AGENTS.md",
+      "AI engineering workflows",
+      "AI development governance",
+      "coding agent safety",
+      "operational AI systems",
+      "AI workflow governance"
+    ],
+    "canonical_url": "https://www.skyx.co.uk/blog/ai-coding-without-governance-will-break-at-scale/"
+  },
+  "featured_image": {
+    "file": "assets/ai-coding-governance-featured.svg",
+    "alt": "Layered AI coding governance architecture showing core rules, skills, policies, memory, adapters, and AI workflows"
+  },
+  "references": {
+    "github_repo": "https://github.com/serviceontheweb/ai-coding-rules",
+    "github_wiki": "https://github.com/serviceontheweb/ai-coding-rules/wiki"
+  }
+}

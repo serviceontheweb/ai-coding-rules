@@ -1,17 +1,22 @@
----
-title: ai-coding-rules
----
+# ai-coding-rules Docs
 
-# ai-coding-rules
+This directory contains source documentation for the repository. The primary
+technical knowledge base is the
+[GitHub Wiki](https://github.com/serviceontheweb/ai-coding-rules/wiki).
 
-Lightweight governance files for AI coding agents.
+## Start Here
 
-## Start here
+- [Quickstart](quickstart.md)
+- [Architecture](architecture.md)
+- [Migration Guide](migration-guide.md)
+- [Wiki Home](https://github.com/serviceontheweb/ai-coding-rules/wiki)
 
-1. Read [Quickstart](quickstart.md).
-2. Review [Architecture](architecture.md).
-3. Copy `core/AGENTS.md` into your project.
-4. Add only the adapters, templates, and skills you need.
+## Current Wiki References
+
+- [Core Concepts](https://github.com/serviceontheweb/ai-coding-rules/wiki/Core-Concepts)
+- [AGENTS.md Standards](https://github.com/serviceontheweb/ai-coding-rules/wiki/AGENTS.md-Standards)
+- [Policy System](https://github.com/serviceontheweb/ai-coding-rules/wiki/Policy-System)
+- [Tool Adapters](https://github.com/serviceontheweb/ai-coding-rules/wiki/Tool-Adapters)
 
 ## Repository Layout
 
@@ -21,11 +26,3 @@ Lightweight governance files for AI coding agents.
 - `adapters/` - tool-specific setup notes.
 - `policies/` - machine-readable policy examples.
 - `memory/` - lessons and decision templates.
-
-## Key docs
-
-- [Philosophy](philosophy.md)
-- [Migration Guide](migration-guide.md)
-- [Compatibility](compatibility.md)
-
-Legacy documentation pages remain for compatibility. New work should point to the Core + Extensions layout.

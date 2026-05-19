@@ -9,12 +9,12 @@ approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 
 [sandbox_workspace_write]
-network_access = true
+network_access = false
 
 # Agent instruction file settings
 project_doc_fallback_filenames = ["CLAUDE.md", "AGENTS.md", ".agents.md"]
 project_doc_max_bytes = 65536
 
-# Remote connections (alpha — enable if using remote VPS)
+# Remote connections (alpha; enable only when needed)
 # [features]
 # remote_connections = true

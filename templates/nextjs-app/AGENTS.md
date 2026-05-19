@@ -15,7 +15,8 @@ Start with `core/AGENTS.md`, then add project-specific facts below.
 
 - Keep server-only code out of client components.
 - Validate inputs in server actions, route handlers, and API boundaries.
-- Avoid exposing environment variables unless intentionally prefixed for the client.
+- Avoid exposing environment variables unless intentionally prefixed for the
+  client.
 - Check responsive behavior for user-facing UI changes.
 
 ## Unknowns

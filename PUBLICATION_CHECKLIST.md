@@ -19,13 +19,15 @@ Use this checklist after applying the upgrade pack.
 Add repository description:
 
 ```text
-Lightweight AGENTS.md rules, safety guardrails, context discipline, and memory templates for AI coding agents.
+Lightweight AGENTS.md rules, safety guardrails, context discipline, and memory
+templates for AI coding agents.
 ```
 
 Add topics:
 
 ```text
-agents-md ai-coding codex claude-code github-copilot cursor windsurf aider prompt-engineering developer-tools coding-agents ai-agent-rules
+agents-md ai-coding codex claude-code github-copilot cursor windsurf aider
+prompt-engineering developer-tools coding-agents ai-agent-rules
 ```
 
 ## GitHub Pages
@@ -56,9 +58,12 @@ Suggested release notes:
 ## Added
 
 - Claude Code bridge via CLAUDE.md.
-- Modular rules for context discipline, safety, validation, git workflow, deployment, and memory.
-- Reusable skills for onboarding, security preflight, validation, and session closeout.
-- Tool adapters for Codex, Claude Code, GitHub Copilot, Cursor, Windsurf, and Aider.
+- Modular rules for context discipline, safety, validation, git workflow,
+  deployment, and memory.
+- Reusable skills for onboarding, security preflight, validation, and session
+  closeout.
+- Tool adapters for Codex, Claude Code, GitHub Copilot, Cursor, Windsurf, and
+  Aider.
 - GitHub Pages docs and Wiki pages.
 - Security policy and publication checklist.
 

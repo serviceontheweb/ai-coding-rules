@@ -12,7 +12,8 @@ Use these instructions for all work in this repository.
 
 ## Safety
 
-Do not expose secrets, credentials, private keys, `.env` values, production config, or customer data.
+Do not expose secrets, credentials, private keys, `.env` values, production
+config, or customer data.
 
 Ask before suggesting or performing:
 
@@ -35,8 +36,10 @@ Avoid broad, unbounded output.
 
 ## Validation
 
-Recommend targeted validation for medium-risk changes and broader validation for high-risk changes.
+Recommend targeted validation for medium-risk changes and broader validation for
+high-risk changes.
 
 ## Documentation
 
-When changing behavior, update docs, `LESSONS.md`, or `CHANGELOG.md` only when appropriate.
+When changing behavior, update docs, `LESSONS.md`, or `CHANGELOG.md` only when
+appropriate.

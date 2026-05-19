@@ -15,7 +15,8 @@ Start with `core/AGENTS.md`, then add project-specific facts below.
 
 - Validate request input at API boundaries.
 - Keep database access parameterized.
-- Do not log tokens, credentials, personal data, or full request payloads by default.
+- Do not log tokens, credentials, personal data, or full request payloads by
+  default.
 - Add focused tests for route behavior and service logic.
 
 ## Unknowns

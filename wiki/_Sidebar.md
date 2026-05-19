@@ -1,10 +1,31 @@
 # ai-coding-rules
 
 - [Home](Home)
-- [Getting Started](Getting-Started)
-- [Compatibility](Compatibility)
-- [Context Discipline](Context-Discipline)
-- [Production Discipline](Production-Discipline)
+
+## Foundations
+
+- [Architecture Overview](Architecture-Overview)
+- [Core Concepts](Core-Concepts)
+- [AGENTS.md Standards](AGENTS.md-Standards)
 - [Safety Rules](Safety-Rules)
-- [Lessons System](Lessons-System)
-- [Publishing Guide](Publishing-Guide)
+- [Context Discipline](Context-Discipline)
+
+## Operating Model
+
+- [Memory Systems](Memory-Systems)
+- [Workflow Patterns](Workflow-Patterns)
+- [Policy System](Policy-System)
+- [Skill Design Standards](Skill-Design-Standards)
+
+## Tooling
+
+- [Tool Adapters](Tool-Adapters)
+- [Codex Integration](Codex-Integration)
+- [Claude Code Integration](Claude-Code-Integration)
+- [Cursor Integration](Cursor-Integration)
+
+## Project
+
+- [Contribution Guide](Contribution-Guide)
+- [Roadmap](Roadmap)
+- [FAQ](FAQ)

@@ -1,6 +1,7 @@
 # GitHub Copilot Adapter
 
-GitHub Copilot can use repository-wide and path-specific instruction files alongside `AGENTS.md`.
+GitHub Copilot can use repository-wide and path-specific instruction files
+alongside `AGENTS.md`.
 
 ## Setup
 
@@ -11,5 +12,12 @@ GitHub Copilot can use repository-wide and path-specific instruction files along
 ## Suggested Repository Instruction
 
 ```md
-Follow the repository's `AGENTS.md` instructions. Keep changes scoped, protect secrets, ask before destructive or production actions, and report validation honestly.
+Follow the repository's `AGENTS.md` instructions. Keep changes scoped, protect
+secrets, ask before destructive or production actions, and report validation
+honestly.
 ```
+
+## Reference
+
+- [AGENTS.md Standards](https://github.com/serviceontheweb/ai-coding-rules/wiki/AGENTS.md-Standards)
+- [Tool Adapters](https://github.com/serviceontheweb/ai-coding-rules/wiki/Tool-Adapters)

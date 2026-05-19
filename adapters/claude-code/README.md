@@ -1,6 +1,7 @@
 # Claude Code Adapter
 
-Claude Code commonly uses `CLAUDE.md`, while this framework uses `AGENTS.md` as the portable source of truth.
+Claude Code commonly uses `CLAUDE.md`, while this framework uses `AGENTS.md` as
+the portable source of truth.
 
 ## Setup
 
@@ -15,3 +16,8 @@ Claude Code commonly uses `CLAUDE.md`, while this framework uses `AGENTS.md` as 
 
 Follow the repository instructions in `AGENTS.md`.
 ```
+
+## Reference
+
+- [AGENTS.md Standards](https://github.com/serviceontheweb/ai-coding-rules/wiki/AGENTS.md-Standards)
+- [Claude Code Integration](https://github.com/serviceontheweb/ai-coding-rules/wiki/Claude-Code-Integration)
